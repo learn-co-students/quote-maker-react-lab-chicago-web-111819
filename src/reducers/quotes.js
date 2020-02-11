@@ -1,15 +1,10 @@
 
-import uuid from "uuid";
-
 const quotesReducer = (state = [], action) => {
   let i, quotes = state;
 
   switch (action.type) {
     case "ADD_QUOTE":
-      return [
-        ...state,
-        { id: uuid(), ...action.quote, votes: 0 }
-      ];
+      return [...state, action.quote];
     case "REMOVE_QUOTE":
       i = quotes.findIndex(quote => quote.id === action.quoteId);
       return [...quotes.slice(0, i), ...quotes.slice(i + 1)];

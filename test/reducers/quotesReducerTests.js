@@ -155,7 +155,6 @@ describe("QuoteCard (Revisited)", () => {
         <App />
       </Provider>
     );
-
     let button = wrapper.find(QuoteCard).findWhere(n => n.html() === '<button type="button" class="btn btn-primary">Upvote</button>')
     button.simulate('click')
     expect(store.getState().quotes.length).to.equal(1);
